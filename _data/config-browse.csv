@@ -1,9 +1,9 @@
 field,display_name,btn,hidden,sort_name
 date,Date,,,Date
-creator,Creator,,,
+creator,Creator,,true,
 subject,,true
 location,,true
 identifier,,,true,Identifier
 cb_template,,,true,
-collection_type,Collection Type,true,,
+collection_type,,true,,
 institution,,,true,

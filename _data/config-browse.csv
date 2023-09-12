@@ -4,3 +4,6 @@ creator,Creator,,,
 subject,,true
 location,,true
 identifier,,,true,Identifier
+cb_template,,,true,
+collection_type,Collection Type,true,,
+institution,,,true,

@@ -7,122 +7,89 @@ custom-foot: js/browse-js.html
 {{ content }}
 
 <div class="row mb-3 justify-content-center">
-    <div class="col-md-8 text-center">
-        <form role="search" id="lunrSearch" onsubmit="submitFilter(); return false;">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" id="filterTextBox" placeholder="Filter ... " aria-label="Search"> 
-                <button class="btn btn-success" type="submit" title="Filter items" id="filterButton" >Search</button>
-                <button class="btn btn-outline-secondary filter" onclick="resetFilter(); return false;" data-filter="">Reset</button>
-            </div>
-        </form>
-        <div class="h2" id="numberOf"></div>
+  <div class="col-md-8 text-center">
+    <form role="search" id="lunrSearch" onsubmit="submitFilter(); return false;">
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" id="filterTextBox" placeholder="Filter ... " aria-label="Search">
+        <button class="btn btn-success" type="submit" title="Filter items" id="filterButton">Search</button>
+        <button class="btn btn-outline-secondary filter" onclick="resetFilter(); return false;"
+          data-filter="">Reset</button>
+      </div>
+    </form>
+    <div class="h2" id="numberOf"></div>
+  </div>
+  <div class="col-md-2">
+    <div class="dropdown">
+      <button class="btn btn-secondary mt-1 dropdown-toggle" type="button" id="browseSortButton"
+        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort by <span class="font-weight-bold" id="sortFilter">Random</span>
+      </button>
+      <div class="dropdown-menu browse-sort-menu" aria-labelledby="browseSortButton">
+        <button class="dropdown-item browse-sort-item active" data-filter="random">Random</button>
+        <button class="dropdown-item browse-sort-item" data-filter="title">Title</button>
+        {% assign sort_options = site.data.config-browse | where_exp: 'i','i.sort_name != nil' %}
+        {% for o in sort_options %}
+        <button class="dropdown-item browse-sort-item" data-filter="{{ o.field | escape }}">{{ o.sort_name }}</button>
+        {% endfor %}
+      </div>
     </div>
-    <div class="col-md-2">
-        <div class="dropdown">
-            <button class="btn btn-secondary mt-1 dropdown-toggle" type="button" id="browseSortButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sort by <span class="font-weight-bold" id="sortFilter">Random</span>
-            </button>
-            <div class="dropdown-menu browse-sort-menu" aria-labelledby="browseSortButton">
-                <button class="dropdown-item browse-sort-item active" data-filter="random">Random</button>
-                <button class="dropdown-item browse-sort-item" data-filter="title">Title</button>
-                {% assign sort_options = site.data.config-browse | where_exp: 'i','i.sort_name != nil' %}
-                {% for o in sort_options %}
-                <button class="dropdown-item browse-sort-item" data-filter="{{ o.field | escape }}">{{ o.sort_name }}</button>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 
 <div id="loadingIcon" class="text-center">
-    <div class="spinner-border text-dark" role="status"><span class="visually-hidden">Loading...</span></div>
+  <div class="spinner-border text-dark" role="status"><span class="visually-hidden">Loading...</span></div>
 </div>
 
 <div class="container-fluid">
-    <div class="row">
+  <div class="row">
     <div class="d-none d-md-block col-md-3">
-        <div class="accordion mb-4" id="accordionExample">
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left h4 text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Main Subject
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">{% assign mapped_ctypes = site.data[site.metadata] | map: "collection_type" | compact | uniq %}{% capture included_ctypes %}{% for s in mapped_ctypes %}{{s}} {% endfor %}{% endcapture %}
-                    <ul>
-                        {% for ctype in site.data.collection-types%}{% if included_ctypes contains ctype.title %}
-                        <li class="my-1 "><a href="#{{collection_type.title}}"  class="text-dark">{{ctype.title}}</a></li>
-                        {% endif %}
-                        {% endfor %}
-                      </ul>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left h4 text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Material Type
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">{% assign mapped_types = site.data[site.metadata] | map: "material_type" | compact | uniq %}{% capture included_types %}{% for t in mapped_types %}{{t}} {% endfor %}{% endcapture %}
-                    <ul>
-                        {% for type in site.data.types%}{% if included_types contains type.title %}
-                        <li class="my-1 "><a href="#{{type.title}}"  class="text-dark">{{type.title}}</a></li>
-                        {% endif %}
-                        {% endfor %}
-                      </ul>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left h4 text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Region
-                  </button>
-                </h2>
-              </div>
-          
-              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">{% assign mapped_regions = site.data[site.metadata] | map: "region" | compact | uniq %}{% capture included_regions %}{% for r in mapped_regions %}{{r}} {% endfor %}{% endcapture %}
-                  <ul>
-                    {% for region in site.data.regions%}{% if included_regions contains region.title %}
-                    <li class="my-1"><a href="#{{region.title}}" class="text-dark">{{region.title}}</a></li>
-                    {% endif %}
-                    {% endfor %}
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingZero">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left h4 text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
-                    Organization
-                  </button>
-                </h2>
-              </div>
-          
-              <div id="collapseZero" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                  <ul>
-                    {% for org in site.data.orgs %}{% unless org.title contains "Spud" %}
-                    <li class="my-1 "><a href="#{{org.title}}" class="text-dark">{{org.title}} ({{org.short}})</a></li>
-                    {% endunless %}{% endfor %}
-                  </ul>
-                </div>
-              </div>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Collection Type
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              {% assign mapped_ctypes = site.data[site.metadata] | map: "collection_type" | compact | uniq %}{% capture included_ctypes %}{% for s in mapped_ctypes %}{{s}}  {% endfor %}{% endcapture %}
+              
+                {% for ctype in site.data.collection-types%} {% if included_ctypes contains ctype.title %}
+                <a href="#{{ctype.title}}" class="btn btn-outline-dark btn-sm m-1">{{ctype.title}}</a>
+                {% endif %}
+      
+                {% endfor %}
+             
             </div>
           </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-        <div class="col-12 col-md-9 pl-5">
-    <div class="row" id="browseItems"></div>
-        </div> 
+    <div class="col-12 col-md-9 pl-5">
+      <div class="row" id="browseItems"></div>
     </div>
-    </div>
+  </div>
+</div>

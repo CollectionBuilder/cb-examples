@@ -66,23 +66,33 @@ custom-foot: js/browse-js.html
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Accordion Item #2
+              Institution Type
             </button>
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
+              {% assign mapped_institutions = site.data[site.metadata] | map: "institution_type" | compact | uniq %}{% capture included_institutions %}{% for s in mapped_institutions %}{{s}}  {% endfor %}{% endcapture %}
               
+              {% for itype in site.data.institution-types%} {% if included_institutions contains itype.title %}
+              <a href="#{{itype.title}}" class="btn btn-outline-dark btn-sm m-1">{{itype.title}}</a>
+              {% endif %}
+            {% endfor %}
             </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Accordion Item #3
+              CollectionBuilder Template
             </button>
           </h2>
           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
+              {% assign mapped_cbtemplates = site.data[site.metadata] | map: "cb_template" | compact | uniq %}{% capture included_cbtemplates %}{% for s in mapped_cbtemplates %}{{s}}  {% endfor %}{% endcapture %}
+              {% for cbtemplate in site.data.cb-template%} {% if included_cbtemplates contains cbtemplate.title %}
+              <a href="#{{cbtemplate.title}}" class="btn btn-outline-dark btn-sm m-1">{{cbtemplate.title}}</a>
+              {% endif %}
+              {% endfor %}
             </div>
           </div>
         </div>

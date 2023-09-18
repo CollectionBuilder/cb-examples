@@ -1,5 +1,6 @@
 field,display_name,browse_link,external_link,dc_map,schema_map
 title,Title,,,DCTERMS.title,headline
+object_link,Link to Collection,,true,,
 creator,Creator,,,DCTERMS.creator,creator
 creator_github,Creator's GitHub Account,,true,,
 date,Date Created,,,DCTERMS.date,dateCreated
@@ -15,5 +16,4 @@ institution,Institution,true,,,
 collection_type,Collection Type,true,,,
 cb_template,CollectionBuilder Template,true,,,
 type,Type,,,DCTERMS.type,
-object_link,Link to Collection,,true,,
 rightsstatement,,,,DCTERMS.rights,license

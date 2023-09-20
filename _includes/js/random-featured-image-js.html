@@ -1,0 +1,12 @@
+{%- assign items = site.data.[site.metadata] | where_exp: 'item', 'item.home_feature' -%}
+<script> 
+    //title,youtubeid,objectid
+    var featureItems = [ {% for o in items %}[ {{ o.title | escape | jsonify }}, {{ o.objectid | jsonify }} ]{% unless forloop.last %}, {% endunless %}{% endfor %}];
+    var placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3C/svg%3E";
+    var randomFeaturedPhoto = document.getElementById("home-banner");
+    var randomFeaturedCollection = document.getElementById("featured_link");
+    const random = Math.floor(Math.random() * featureItems.length);    
+    randomFeaturedPhoto.style.backgroundImage = "url('/objects/" + featureItems[random][1] + ".jpg')";
+    randomFeaturedCollection.href = "/" + featureItems[random][1] + ".html";
+    randomFeaturedCollection.title = featureItems[random][0];
+</script>

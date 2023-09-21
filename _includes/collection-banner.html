@@ -20,7 +20,7 @@
 </style>
 <div id="home-banner" class="container-fluid mb-0 p-0">
     <div id="home-title-box">
-        <div class="title-card p-2 text-left">
+        <div class="title-card p-2 text-end text-white bg-dark bg-opacity-75">
             <div class="container">
             <a class="d-none d-md-block float-left px-5" href="{{ site.organization-link }}" target="_blank" rel="noopener">
                 <img src="{{ site.organization-logo-nav | relative_url }}" alt="{{ site.organization-name }} home" >
@@ -30,8 +30,9 @@
         </div>
         </div>
     </div>
-    {% unless site.data.theme.featured-image contains '/' %}<div class="text-end p-0 mt-0">
-        <small><a class="text-info featured-link" id="featured_link" href="" title="">Featured Collection</a></small>
+    {% unless site.data.theme.featured-image contains '/' %}
+    <div class="text-end p-0 mt-0">
+        <small><a class="text-white bg-dark bg-opacity-75 py-1 px-1 featured-link" id="featured_link" href="" title="">Featured Collection</a></small>
     </div>{% endunless %}
 </div>
 {%- else -%}

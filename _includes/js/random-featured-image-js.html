@@ -7,6 +7,6 @@
     var randomFeaturedCollection = document.getElementById("featured_link");
     const random = Math.floor(Math.random() * featureItems.length);    
     randomFeaturedPhoto.style.backgroundImage = "url('/objects/" + featureItems[random][1] + ".jpg')";
-    randomFeaturedCollection.href = "/" + featureItems[random][1] + ".html";
+    randomFeaturedCollection.href = "/items/" + featureItems[random][1] + ".html";
     randomFeaturedCollection.title = featureItems[random][0];
 </script>

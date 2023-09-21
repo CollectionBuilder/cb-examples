@@ -61,16 +61,18 @@ a {
     img { height: 40px; }
 }
 
-#footer-nav .nav-link.active, #footer-nav .show > .nav-link {
+#footer-nav .show > .nav-link, #footer-nav .nav-link {
+    color: #fff;
+    background: transparent;
+    font-size: 0.875em
+  }
+
+  #footer-nav .nav-link.active {
     color: #fff;
     border: solid white 1px;
     background: transparent;
+    font-size: 0.875em
   }
-
-  #footer-nav .nav-link:hover {
-    color: white;
-    background: rgba(255,255,255,.10);
-}
 
 /* scroll to top */
 #scroll-to-top {

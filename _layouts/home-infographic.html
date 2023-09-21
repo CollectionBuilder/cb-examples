@@ -1,6 +1,7 @@
 ---
 # Default home page with boxes providing collection stats
 layout: page
+custom-foot: js/random-featured-image-js.html
 ---
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
 <div class="row">

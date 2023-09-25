@@ -20,12 +20,12 @@ source-code: https://github.com/CollectionBuilder/collectionbuilder-csv
 # title of site appears in banner
 title: CollectionBuilder Examples
 # tagline, a short phrase that will appear throughout the site in the top banner
-tagline: Digital Collection Magic with Static Web Technologies
+tagline: Digital Collection and Exhibit Websites Built with CollectionBuilder
 # description appears in meta tags and other locations
 # this description might appear in search result lists, keep around 160 characters max
-description: "CollectionBuilder-CSV is a template for creating digital collection exhibits using static web technology."
+description: "CollectionBuilder is an open-source framework for creating digital collection and exhibit websites that are driven by metadata and powered by modern static web technology. Featuring sites created by a variety of individuals, organizations, and institutions, this collection of CollectionBuilder projects is meant to demonstrate the range of possibilities and use cases for CollectionBuilder."
 # keywords, a short list of subjects describing the collection, separated by semicolon, to appear in rich markup
-keywords: idaho;history;inland northwest
+keywords: collectionbuilder;digital exhibits;digital collections
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
 author: CollectionBuilder
 

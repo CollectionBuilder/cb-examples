@@ -8,26 +8,30 @@ credits: true
 # Look in _includes/feature for options to easily add features to the page
 ---
 
-{% include feature/jumbotron.html objectid="https://cdil.lib.uidaho.edu/images/palouse_sm.jpg" %} 
+# CollectionBuilder Examples
 
-{% include feature/nav-menu.html sections="About CollectionBuilder CSV;About the About Page" %}
+## About this Collection
 
-## About CollectionBuilder CSV
+This collection of CollectionBuilder projects features sites created by a variety of individuals, organizations, and institutions. These examples are meant to demonstrate numerous possibilities and use cases for CollectionBuilder. 
 
-This demo collection features items from the University of Idaho Library's [Digital Collections](https://www.lib.uidaho.edu/digital/), and is build using [CollectionBuilder-CSV](https://github.com/CollectionBuilder/collectionbuilder-csv).
+This collection is based off our [Zotero library of CollectionBuilder examples](https://www.zotero.org/groups/5020353/collectionbuilder-examples/library){:target="_blank" rel="noopener"}.
 
-CollectionBuilder-CSV is a "Stand Alone" template for creating digital collection and exhibit websites using Jekyll, given:
+### Add Your Project
 
-- a CSV of collection metadata
-- a folder of images, PDFs, audio, or video files
+Do you have a CollectionBuilder project to be featured in this collection? We encourage anyone who is interested in adding their digital collection to the site to fill out the form below.
 
-Driven by your collection metadata, the template generates engaging visualizations to browse and explore your objects.
-The resulting static site can be hosted on any basic web server.
+{% include feature/button.html text="Submit your Project" link="https://forms.gle/k1fsqiRPo71uULfo8" size="lg my-3" centered=true color="outline-dark" target="_blank"  %}
 
-[CollectionBuilder](https://github.com/CollectionBuilder/) is an set of open source tools for creating digital collection and exhibit websites that are driven by metadata and powered by modern static web technology.
-See [CB Docs](https://collectionbuilder.github.io/cb-docs/) for detailed information.
+## About CollectionBuilder
 
-{% include feature/image.html objectid="demo_001" width="75" %} 
+[CollectionBuilder](https://github.com/CollectionBuilder/){:target="_blank" rel="noopener"} is an open-source framework for creating digital collection and exhibit websites that are driven by metadata and powered by modern static web technology. 
 
-<!-- IMPORTANT!!! DELETE this comment and the include below when you are finished editing this page for your collection. The include below introduces about page features. They will show up on your collection's about page until you delete it.  -->
-{% include cb/about_the_about.md %} 
+Interested in learning how to use CollectionBuilder? Check out our learning resources below to get started:
+
+- [CollectionBuilder Documentation](https://collectionbuilder.github.io/cb-docs/){:target="_blank" rel="noopener"}
+- [CollectionBuilder Walkthroughs](https://collectionbuilder.github.io/cb-docs/docs/walkthroughs/){:target="_blank" rel="noopener"}
+- [CollectionBuilder-GH Video Tutorial](https://www.youtube.com/playlist?list=PLt9zT3xACQo7q72AfphJzH41OiPcZrF4H){:target="_blank" rel="noopener"}
+
+### Get in Touch
+
+Questions? Reach out to [collectionbuilder.team@gmail.com](mailto:collectionbuilder.team@gmail.com){:target="_blank" rel="noopener"} or make a post on the [CollectionBuilder GitHub Discussion Board](https://github.com/orgs/CollectionBuilder/discussions){:target="_blank" rel="noopener"}.

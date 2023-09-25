@@ -9,21 +9,14 @@ custom-foot: js/random-featured-image-js.html
   <div class="col-md-8">
 
     {% include index/description.html %}
-    {% include index/carousel.html title="CollectionBuilder Project Examples" %}
+    {% include index/carousel.html %}
     
   </div>
   <div class="col-md-4">  
 
-    {% include index/time.html %}
+    {% include index/featured-terms.html field="collection_type" title="Collection Types" btn-color="outline-dark" max=8 %}
 
-    {% include index/featured-terms.html field="subject" title="Top Subjects" btn-color="primary" %}
-
-    {% include index/featured-terms.html field="location" title="Locations" btn-color="outline-secondary" %}
-
-  </div>
-  <div class="col-md-12">
-
-    {% include index/data-download.html %}
+    {% include index/featured-terms.html field="institution_type" title="Institution Types" btn-color="outline-dark" max=8 %}
 
   </div>
 

@@ -12,7 +12,7 @@ Do you have a CollectionBuilder project to be featured in this collection? We en
 
 ----------
 
-## CollectionBuilder 
+## About CollectionBuilder 
 
 <https://collectionbuilder.github.io/>
 

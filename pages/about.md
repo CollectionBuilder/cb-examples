@@ -18,7 +18,7 @@ This collection is based off our [Zotero library of CollectionBuilder examples](
 
 ### Add Your Project
 
-Do you have a CollectionBuilder project to be featured in this collection? We encourage anyone who is interested in adding their digital collection to the site to fill out the form below.
+Do you have a CollectionBuilder project to be featured in this collection? We encourage anyone who is interested in adding their digital collection to this site to fill out the form below.
 
 {% include feature/button.html text="Submit your Project" link="https://forms.gle/k1fsqiRPo71uULfo8" size="lg my-3" centered=true color="outline-dark" target="_blank"  %}
 

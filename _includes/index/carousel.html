@@ -20,7 +20,7 @@
 
 {%- assign carousel-max = include.max | default: 9 -%}
 {%- assign btn-color = include.btn-color | default: "light" -%}
-{%- assign btn-text = include.btn-text | default: "View Collection" -%}
+{%- assign btn-text = include.btn-text | default: "View Project" -%}
 {% if site.data.theme.carousel-child-objects == true %}
 {%- assign carousel-items = site.data[site.metadata] | where_exp: 'item','item.objectid' | where_exp: "item","item.image_small != nil or item.image_thumb != nil"-%}
 {% else %}

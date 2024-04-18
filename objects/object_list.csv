@@ -150,3 +150,5 @@ object_location,image_small,image_thumb
 /objects/example0147.jpg,/objects/small/example0147_sm.jpg,/objects/thumbs/example0147_th.jpg
 /objects/example0148.gif,,
 /objects/example0149.jpg,/objects/small/example0149_sm.jpg,/objects/thumbs/example0149_th.jpg
+/objects/example0150.jpg,/objects/small/example0150_sm.jpg,/objects/thumbs/example0150_th.jpg
+/objects/example0151.jpg,/objects/small/example0151_sm.jpg,/objects/thumbs/example0151_th.jpg

@@ -8,11 +8,11 @@
 # URL VARIABLES
 #
 # site domain, full URL to the production location of your collection
-url: 
+url: https://collectionbuilder.github.io
 # path to location on the domain if necessary e.g. /digital/hjccc
-baseurl: 
+baseurl: /cb-examples
 # location of code, the full url to your github repository
-source-code: https://github.com/CollectionBuilder/collectionbuilder-csv
+source-code: https://github.com/CollectionBuilder/cb-examples
 
 ##########
 # SITE SETTINGS
@@ -23,9 +23,9 @@ title: CollectionBuilder Examples
 tagline: Digital Collection and Exhibit Websites Built with CollectionBuilder
 # description appears in meta tags and other locations
 # this description might appear in search result lists, keep around 160 characters max
-description: "Featuring sites created by a variety of individuals, organizations, and institutions, this collection of CollectionBuilder projects is meant to demonstrate the range of possibilities and use cases for CollectionBuilder."
+description: "Featuring sites created by a variety of individuals, organizations, and institutions, this collection of collection projects demonstrates the range of possibilities and use cases for CollectionBuilder."
 # keywords, a short list of subjects describing the collection, separated by semicolon, to appear in rich markup
-keywords: collectionbuilder;digital exhibits;digital collections
+keywords: collectionbuilder; digital exhibits; digital collections
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
 author: CollectionBuilder
 
@@ -52,8 +52,8 @@ metadata: cb-examples
 #
 organization-name: "CollectionBuilder"
 organization-link: https://collectionbuilder.github.io/
-organization-logo-banner: assets/img/collectionbuilder-logo.png
-organization-logo-nav: assets/img/collectionbuilder-logo.png
+organization-logo-banner: /assets/img/collectionbuilder-logo.png
+organization-logo-nav: /assets/img/collectionbuilder-logo.png
 
 ##########
 # GOOGLE SERVICES [optional!]

@@ -77,7 +77,7 @@ organization-logo-nav: /assets/img/collectionbuilder-logo.png
 # (this is done automatically by gh-pages build)
 #
 # ignore stuff
-exclude: [docs/, Rakefile, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md]
+exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md]
 # compress CSS output
 sass:
   style: compressed

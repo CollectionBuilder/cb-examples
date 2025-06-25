@@ -3,14 +3,15 @@
 layout: item/item-page-base
 ---
 
-<div class="card mb-4 text-center">
+<div class="mb-4 text-center">
 
-    {% include item/image-gallery.html %}
-    
-    <div class="card-body">
-
+    {% if page.image_small or page.image_thumb %}
+    <p>
+        {% include item/item-thumb.html %}
+    </p>
+    {% endif %}
+    <div class="my-2">
         {% include item/download-buttons.html %}
-
     </div>
 
 </div>

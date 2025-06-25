@@ -2,7 +2,13 @@
     Put your custom SCSS here! 
     This allows you to override any CollectionBuilder or Bootstrap CSS without modifying the base theme files directly.
 */
-
-.button-wrapper .btn {
-    margin-bottom:5px;
+#home-title-box {
+    padding-top: 13em;
+    padding-bottom: 5em;
+}
+@media screen and (max-width: 576px) {
+    #home-title-box {
+        padding-top: 7em;
+        padding-bottom: 5em; 
+    }
 }

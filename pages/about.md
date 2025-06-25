@@ -24,7 +24,7 @@ This collection of CollectionBuilder projects features sites created by a variet
 
 Do you have a CollectionBuilder project to be featured in this collection? We encourage anyone who is interested in adding their digital collection to this site to fill out the form below.
 
-{% include feature/button.html text="Submit your Project" link="https://forms.gle/k1fsqiRPo71uULfo8" size="lg my-3" centered=true color="outline-dark" %}
+{% include feature/button.html text="Submit your Project" link="https://forms.gle/k1fsqiRPo71uULfo8" size="lg my-3" centered=true color="outline-success" %}
 
 ## About CollectionBuilder
 

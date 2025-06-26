@@ -1,19 +1,16 @@
 field,display_name,browse_link,external_link,dc_map,schema_map
 title,Title,,,DCTERMS.title,headline
-object_link,Link to Collection,,true,,
-creator,Creator,,,DCTERMS.creator,creator
-creator_github,Creator's GitHub Account,,true,,
-date,Date Created,,,DCTERMS.date,dateCreated
+project_link,Link to Project,,true,,
 description,Description,,,DCTERMS.description,description
 subject,Subjects,true,,DCTERMS.subject,keywords
-language,Language,,,,
+date,Date Created,,,DCTERMS.date,dateCreated
+creator,Creator,,,DCTERMS.creator,creator
+creator_github,Creator's GitHub Account,,true,,
+institution,Institution,true,,,
 location,Location,,,,contentLocation
 latitude,Latitude,,,,
 longitude,Longitude,,,,
-source,Source,,,,
-identifier,Source Identifier,,,,
-institution,Institution,true,,,
-collection_type,Collection Type,true,,,
+language,Language,,,,
 cb_template,CollectionBuilder Template,true,,,
-type,Type,,,DCTERMS.type,
-rightsstatement,,,,DCTERMS.rights,license
+collection_type,Collection Type,true,,,
+institution_type,Institution Type,true,,,

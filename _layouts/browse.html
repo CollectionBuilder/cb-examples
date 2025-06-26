@@ -88,4 +88,65 @@ custom-foot: js/browse-js.html
     <div class="spinner-border text-dark" role="status"><span class="visually-hidden">Loading...</span></div>
 </div>
 
-<div class="row" id="browseItems"></div>
+<div class="row">
+    <div class="d-none d-md-block col-md-3">
+        <div class="accordion" id="accordionBrowse">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Collection Type
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionBrowse">
+                    <div class="accordion-body">
+                    {% assign mapped_ctypes = site.data[site.metadata] | map: "collection_type" | compact | uniq %}{% capture included_ctypes %}{% for s in mapped_ctypes %}{{s}}  {% endfor %}{% endcapture %}
+
+                    {% for ctype in site.data.collection-types%} {% if included_ctypes contains ctype.title %}
+                    <a href="#collection_type:{{ctype.title}}" class="btn btn-outline-dark btn-sm m-1">{{ctype.title}}</a>
+                    {% endif %}
+
+                    {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Institution Type
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionBrowse">
+                    <div class="accordion-body">
+                    {% assign mapped_institutions = site.data[site.metadata] | map: "institution_type" | compact | uniq %}{% capture included_institutions %}{% for s in mapped_institutions %}{{s}}  {% endfor %}{% endcapture %}
+
+                    {% for itype in site.data.institution-types%} {% if included_institutions contains itype.title %}
+                    <a href="#institution_type:{{itype.title}}" class="btn btn-outline-dark btn-sm m-1">{{itype.title}}</a>
+                    {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    CollectionBuilder Template
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionBrowse">
+                    <div class="accordion-body">
+                    {% assign mapped_cbtemplates = site.data[site.metadata] | map: "cb_template" | compact | uniq %}{% capture included_cbtemplates %}{% for s in mapped_cbtemplates %}{{s}}  {% endfor %}{% endcapture %}
+                    {% for cbtemplate in site.data.cb-template%} {% if included_cbtemplates contains cbtemplate.title %}
+                    <a href="#cb_template:{{cbtemplate.title}}" class="btn btn-outline-dark btn-sm m-1">{{cbtemplate.title}}</a>
+                    {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 pl-5">
+        <div class="row" id="browseItems"></div>
+    </div>
+</div>

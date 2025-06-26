@@ -92,12 +92,6 @@ function makeCard(obj) {
     {% endunless %}{% endfor %}
     card += '</p>';
     
-    // Media type badge
-    if(obj.display_template) {
-        const mediaIcon = getIcon(obj.display_template, obj.format, "hidden");
-        card += `<p class="card-text"><small><a class="btn btn-sm btn-outline-secondary" href="{{ page.url | relative_url }}#display_template:${encodeURIComponent(obj.display_template)}">${obj.display_template.toUpperCase().replace("_"," ")} ${mediaIcon}</a></small></p>`;
-    }
-    
     card += `<hr><a href="${itemHref}" class="btn btn-sm btn-light" title="link to ${obj.title}">View Full Record</a></div></div></div>`;
     return card;
 }

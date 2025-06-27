@@ -4,4 +4,4 @@ layout: browse
 permalink: /browse.html
 ---
 
-## Browse Items
+## Browse CB Projects

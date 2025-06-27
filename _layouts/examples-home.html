@@ -5,7 +5,7 @@ custom-foot: js/random-featured-image-js.html
 ---
 <div id="home-banner" class="mb-0 p-0 position-relative border-bottom border-2">
 
-    <div id="home-title-box" class="row justify-content-center">
+    <div id="home-title-box">
         <div class="title-card p-2 text-end text-white bg-dark bg-opacity-75">
             <div class="container">
                 <a class="d-none d-md-block pe-5" href="{{ site.organization-link }}">
@@ -21,7 +21,7 @@ custom-foot: js/random-featured-image-js.html
 </div>
 
 <div class="container my-4">
-    {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
+
     <div class="row">
 
         <div class="col-md-8">
@@ -29,6 +29,7 @@ custom-foot: js/random-featured-image-js.html
             <div class="card mb-3">
                 <div class="card-body">
                     <p class="card-text">{{ site.description }}</p>
+                    <p class="card-text"><a class="btn btn-lg btn-outline-primary m-2" href="">Explore Projects</a></p>
                     
                     <a class="btn btn-dark m-2" href="https://collectionbuilder.github.io/">CollectionBuilder Website &raquo;</a>
                     <a class="btn btn-dark m-2" href="https://github.com/CollectionBuilder">CB Code Repository &raquo;</a>

@@ -1,25 +1,29 @@
 ---
 # Default home page with boxes providing collection stats
 layout: page
-custom-foot: js/random-featured-image-js.html
 ---
-{%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
 <div class="row">
 
   <div class="col-md-8">
 
-    <br>
     {% include index/description.html %}
-    {% include index/add-project.html %}
-    {% include index/carousel.html %}
+    {% include index/carousel.html title="Sample Items" %}
     
   </div>
   <div class="col-md-4">  
 
-    <br>
-    {% include index/featured-terms.html field="collection_type" title="Collection Types" btn-color="outline-dark" max=8 %}
+    {% include index/time.html %}
 
-    {% include index/featured-terms.html field="institution_type" title="Institution Types" btn-color="outline-dark" max=8 %}
+    {% include index/featured-terms.html field="subject" title="Top Subjects" btn-color="primary" %}
+
+    {% include index/featured-terms.html field="location" title="Locations" btn-color="outline-secondary" %}
+    
+    {% include index/content.html %}
+
+  </div>
+  <div class="col-md-12">
+
+    {% include index/data-download.html %}
 
   </div>
 

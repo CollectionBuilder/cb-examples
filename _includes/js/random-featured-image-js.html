@@ -12,7 +12,7 @@
     // set up banner images
     {% assign items = site.data[site.metadata] | where_exp: 'item', 'item.home_feature' %}
     var bannerImages = [ 
-        {% for i in items %}{ "src": "{{ i.featured_image | relative_url }}", "position": "{{ b.position | default: 'center' }}", "alt": {{ i.title | escape | jsonify }}, "link": "{{ '/items/' | relative_url }}{{ i.objectid }}.html" }{% unless forloop.last %},{% endunless %} {% endfor %}
+        {% for i in items %}{ "src": "{{ i.object_location | relative_url }}", "position": "{{ b.position | default: 'center' }}", "alt": {{ i.title | escape | jsonify }}, "link": "{{ '/items/' | relative_url }}{{ i.objectid }}.html" }{% unless forloop.last %},{% endunless %} {% endfor %}
     ];
     var featuredImage = shuffle(bannerImages).pop();
     // set background image

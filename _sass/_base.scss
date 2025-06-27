@@ -3,6 +3,21 @@
     these values are configurable using theme.yml > Theme Fonts area 
     or by editing base variables in cb.scss
 */
+
+/* set up base variable to override from cb.scss */
+$base-font-family: "" !default;
+$base-font-size: "" !default;
+$text-color: "" !default;
+$link-color: "" !default;
+
+/* smooth scroll for back to top, unless user opt out */
+html {
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+}
+
+/* set font base set in theme.yml */
 body {
     @if $base-font-family != "" { font-family: $base-font-family; }
     @if $base-font-size != "" { font-size: $base-font-size; }
@@ -55,31 +70,29 @@ a {
 
 /* footer */
 #footer-logo {
-    height: 40px;
+    height: 50px;
 }
 #footer-credits {
     img { height: 40px; }
 }
 
-#footer-nav .show > .nav-link, #footer-nav .nav-link {
-    color: #fff;
-    background: transparent;
-    font-size: 0.875em
-  }
-
-  #footer-nav .nav-link.active {
+#footer-nav .nav-link.active, #footer-nav .show > .nav-link {
     color: #fff;
     border: solid white 1px;
     background: transparent;
-    font-size: 0.875em
   }
+
+  #footer-nav .nav-link:hover {
+    color: white;
+    background: rgba(255,255,255,.10);
+}
 
 /* scroll to top */
 #scroll-to-top {
     display: none; 
     position: fixed; 
-    bottom: 38px; 
-    right: 22px; 
+    bottom: 20px; 
+    right: 20px; 
     z-index: 99;
     font-size: 40px; 
 }

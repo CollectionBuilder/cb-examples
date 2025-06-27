@@ -1,0 +1,38 @@
+---
+# basic layout intended for metadata only type item, designed for linking to external source
+layout: item/item-page-base
+---
+
+<div class="mb-4 text-center">
+
+    {% if page.image_small or page.image_thumb %}
+    <p>
+        {% if page.image_thumb or page.image_small %}
+        <img class="img-thumbnail" src="{{ page.image_small | default: page.image_thumb | relative_url }}" alt="{{ page.image_alt_text | default: page.description | default: page.title | escape }}">
+        {% else %}
+        <svg class="bi text-body" fill="currentColor" aria-hidden="true">
+            {%- assign icon_template = page.display_template | default: page.format -%}
+            <use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#{% if icon_template contains 'image' %}icon-image{% elsif icon_template contains 'pdf' %}icon-pdf{% elsif icon_template contains 'audio' %}icon-audio{% elsif icon_template contains 'video' %}icon-video{% elsif icon_template contains 'record' %}icon-record{% else %}icon-default{% endif %}"/>
+        </svg>
+        <span class="visually-hidden">{{ page.title | escape }} - {{ page.format }}</span>
+        {% endif %}
+    </p>
+    {% endif %}
+    <div class="my-2">
+        <div class="btn-group" role="group" aria-label="Item options">
+            {% if page.date %}{%- capture year -%}{% if page.date contains "-" %}{{ page.date | split: "-" | first }}{% elsif page.date contains "/" %}{{ page.date | split: "/" | last }}{% else %}{{ page.date }}{% endif %}{%- endcapture -%}
+            <a href="{{ year | strip | prepend: '/timeline.html#y' | relative_url }}" class="btn btn-outline-primary">View on Timeline</a>{% endif %}
+            {% if page.latitude and page.longitude %}
+            <a href="{{ '/map.html?location=' | append: page.latitude  | append: ',' | append: page.longitude | append: '&marker=' | append: page.objectid | relative_url }}" class="btn btn-outline-primary">View on Map</a>{% endif %}
+        </div>
+        <a href="{{ page.project_link | relative_url }}" class="btn btn-primary" title="{{ page.title | escape }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi icon-sprite " viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+            </svg>
+            Visit Project
+        </a>
+
+    </div>
+
+</div>
